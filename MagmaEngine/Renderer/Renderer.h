@@ -4,6 +4,11 @@
 #include "Renderer/Shader.h"
 #include "Renderer/VertexBuffer.h"
 #include "Renderer/IndexBuffer.h"
+#include "Renderer/Texture.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Magma
 {
@@ -14,11 +19,16 @@ namespace Magma
 		static void BeginFrame();
 		static void EndFrame();
 
-		static void DrawQuad();
+		static void DrawQuad(glm::mat4 transform, glm::vec4 color, GLuint texture);
 
 	private:
-		static Shader shader;
-		static VertexBuffer vertexBuffer;
-		static IndexBuffer indexBuffer;
+		static Shader m_Shader;
+		static VertexBuffer m_VertexBuffer;
+		static IndexBuffer m_IndexBuffer;
+		static GLuint m_WhiteTexture;
+
+		static int m_BufferOffset;
+		static std::vector<uint32_t> m_IndexBufferData;
+		static std::array<int, 31> m_TextureSlots;
 	};
 }

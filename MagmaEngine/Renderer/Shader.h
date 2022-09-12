@@ -14,6 +14,8 @@ namespace Magma
 		void Bind();
 		void Unbind();
 
+		void UploadIntArray(const char* name, int* data, int size);
+
 	private:
 		GLuint shaderProgram;
 	};

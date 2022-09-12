@@ -8,5 +8,6 @@ namespace Magma
 	{
 		if (Context::GetPlatform() == Platform::WINDOWS)
 			return std::make_shared<WindowsWindow>(title, width, height);
+		return nullptr;
 	}
 }

@@ -16,6 +16,12 @@ namespace Magma
 		return true;
 	}
 
+	void IndexBuffer::Delete()
+	{
+		if (bufferId)
+			glDeleteBuffers(1, &bufferId);
+	}
+
 	void IndexBuffer::Bind()
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferId);

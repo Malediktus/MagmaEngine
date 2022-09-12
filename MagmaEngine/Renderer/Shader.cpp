@@ -83,4 +83,10 @@ namespace Magma
 	{
 		glUseProgram(0);
 	}
+	void Shader::UploadIntArray(const char* name, int* data, int size)
+	{
+		Bind();
+		auto loc = glGetUniformLocation(shaderProgram, name);
+		glUniform1iv(loc, size, data);
+	}
 }

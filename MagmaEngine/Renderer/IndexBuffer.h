@@ -11,10 +11,11 @@ namespace Magma
         ~IndexBuffer();
 
         bool Load(void* data, uint32_t numIndices, uint8_t elementSize);
+        void Delete();
 
         void Bind();
         void Unbind();
-
+        
     private:
         GLuint bufferId;
     };
